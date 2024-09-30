@@ -1,9 +1,7 @@
-<h1>Projeto Full-Stack-Basico Back-End</h1> 
+<h1>Projeto Disciplina: Qualidade de Software, Segurança e Sistemas Inteligentes</h1> 
 
 - Projeto que contempla o MVP para o primeiro modulo da PÓS GRADUAÇÃO de Engenharia de Software da PUC
-- O MVP pensado nesse modulo é um projeto de cadastro de políticas
-- O projeto consiste em cadastrar, atualizar e desativar regras, políticas e demais componentes
-
+- Projeto aborda aspectos de teste e sistemas inteligentes, bem como as boas práticas de fullstack
 
 [![PyPI](https://img.shields.io/pypi/pyversions/apache-superset.svg?maxAge=2592000)](https://pypi.python.org/pypi/apache-superset)
 
@@ -121,5 +119,5 @@ docker run test_application_score
 
 ```bash
 # No diretório front_end/ executar o comando
-executar o arquivo index.html
+abrir o arquivo index.html através do navegador após a aplicação back-end estar rodando
 ```
