@@ -12,26 +12,26 @@ class DataScalerTransformer:
             return pickle.load(file)
         
     def input_na_numeric(self, columns):
-        self.data[columns] = self.scaler.imputer_mean.transform(self.data[columns])
+        self.data[columns] = self.scaler.get('imputer_mean').transform(self.data[columns])
 
     def input_na_categorical(self, columns):
-        self.data[columns] = self.scaler.imputer_mode.transform(self.data[columns])
+        self.data[columns] = self.scaler.get('imputer_mode').transform(self.data[columns])
 
     def scale_monetary_columns(self, columns):
-        self.data[columns] = self.scaler.robust_scaler.transform(self.data[columns])
+        self.data[columns] = self.scaler.get('robust_scaler').transform(self.data[columns])
 
     def scale_numeric_columns(self, columns):
-        self.data[columns] = self.scaler.standard_scaler.transform(self.data[columns])
+        self.data[columns] = self.scaler.get('standard_scaler').transform(self.data[columns])
 
     def encode_categorical_columns(self, columns):
         for col in columns:
-            self.data[col] = self.scaler.label_encoders[col].transform(self.data[col])
+            self.data[col] = self.scaler.get('label_encoders')[col].transform(self.data[col])
 
     def transform(self):
         # Definir os grupos de colunas
-        monetary_cols = self.scaler.monetary_cols
-        numeric_cols = self.scaler.numeric_cols
-        categorical_cols = self.scaler.categorical_cols
+        monetary_cols = self.scaler.get('monetary_cols')
+        numeric_cols = self.scaler.get('numeric_cols')
+        categorical_cols = self.scaler.get('categorical_cols')
 
         with ThreadPoolExecutor(max_workers=2) as executor:
             executor.submit(self.input_na_numeric, monetary_cols + numeric_cols)

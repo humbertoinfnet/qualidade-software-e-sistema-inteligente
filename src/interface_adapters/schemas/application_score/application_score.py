@@ -1,70 +1,40 @@
-from typing import Optional
+from typing import Optional, Literal
 from pydantic import BaseModel, Field, RootModel
+import uuid
 
 
 class ResponseApplicationScore(BaseModel):
-    policy_id: int = Field(None, description='Id da política')
-    name: str = Field(None, description='Nome da política')
-    description: str = Field(None, description='Descrição da política')
-    identify: str = Field(None, description='Identificacao do elemento')
-
+    identifier: str = Field('uuid', description="ID do cliente")
+    classify: str = Field('D', description='Classificação de risco')
+    prob: float = Field(0.00, description='Rating')
+    shap_plot: str = Field('codigo imagem base64', description='Imagem da explicação da classificação do modelo')
 
 class ResponseSuccessApplicationScore(RootModel):
     root: list[ResponseApplicationScore] = Field(description="Array dos objetos")
 
 
 class BodyApplicationScore(BaseModel):
-    id: int = Field(..., description="Identificador da classidficação do cliente")
-    limit_bal: float = Field(..., description="Limite de crédito do cliente")
-    sex: int = Field(..., description="Sexo do cliente (1 = Masculino, 2 = Feminino)")
-    education: int = Field(..., description="Nível de educação do cliente (1 a 4)")
-    marriage: int = Field(..., description="Estado civil (1 = Casado, 2 = Solteiro, 3 = Outros)")
-    age: int = Field(..., description="Idade do cliente")
-    pay_1: int = Field(..., description="Status de pagamento no mês mais recente")
-    pay_2: int = Field(..., description="Status de pagamento no segundo mês mais recente")
-    pay_3: int = Field(..., description="Status de pagamento no terceiro mês mais recente")
-    pay_4: int = Field(..., description="Status de pagamento no quarto mês mais recente")
-    pay_5: int = Field(..., description="Status de pagamento no quinto mês mais recente")
-    pay_6: int = Field(..., description="Status de pagamento no sexto mês mais recente")
-    bill_amt1: float = Field(..., description="Valor da fatura no mês mais recente")
-    bill_amt2: float = Field(..., description="Valor da fatura no segundo mês mais recente")
-    bill_amt3: float = Field(..., description="Valor da fatura no terceiro mês mais recente")
-    bill_amt4: float = Field(..., description="Valor da fatura no quarto mês mais recente")
-    bill_amt5: float = Field(..., description="Valor da fatura no quinto mês mais recente")
-    bill_amt6: float = Field(..., description="Valor da fatura no sexto mês mais recente")
-    pay_amt1: float = Field(..., description="Valor pago no mês mais recente")
-    pay_amt2: float = Field(..., description="Valor pago no segundo mês mais recente")
-    pay_amt3: float = Field(..., description="Valor pago no terceiro mês mais recente")
-    pay_amt4: float = Field(..., description="Valor pago no quarto mês mais recente")
-    pay_amt5: float = Field(..., description="Valor pago no quinto mês mais recente")
-    pay_amt6: float = Field(..., description="Valor pago no sexto mês mais recente")
-
-    class Config:
-        schema_extra = {
-            "example": {
-                "id": 123456,
-                "limit_bal": 200000.0,
-                "sex": 1,
-                "education": 2,
-                "marriage": 1,
-                "age": 35,
-                "pay_1": 0,
-                "pay_2": -1,
-                "pay_3": 0,
-                "pay_4": 0,
-                "pay_5": -1,
-                "pay_6": -1,
-                "bill_amt1": 50000.0,
-                "bill_amt2": 48000.0,
-                "bill_amt3": 47000.0,
-                "bill_amt4": 46000.0,
-                "bill_amt5": 45000.0,
-                "bill_amt6": 44000.0,
-                "pay_amt1": 2000.0,
-                "pay_amt2": 1500.0,
-                "pay_amt3": 1800.0,
-                "pay_amt4": 1900.0,
-                "pay_amt5": 1600.0,
-                "pay_amt6": 1700.0
-            }
-        }
+    identifier: str = Field(default_factory=lambda: str(uuid.uuid4()), description="ID do cliente")
+    limite_credito: float = Field(..., description="Limite de crédito")
+    sexo: int = Field(1, description="Sexo do cliente (1 = Masculino, 2 = Feminino)", ge=1, le=2)
+    escolaridade: int = Field(3, description="Nível de escolaridade (0 a 6)", ge=0, le=6)
+    estado_civil: int = Field(1, description="Estado civil (1 = Casado, 2 = Solteiro, 3 = Outros)", ge=0, le=3)
+    idade: int = Field(..., description="Idade do cliente")
+    status_pag_1: int = Field(..., description="Status de pagamento no mês mais recente", ge=-2, le=7)
+    status_pag_2: int = Field(..., description="Status de pagamento no segundo mês mais recente", ge=-2, le=7)
+    status_pag_3: int = Field(..., description="Status de pagamento no terceiro mês mais recente", ge=-2, le=7)
+    status_pag_4: int = Field(..., description="Status de pagamento no quarto mês mais recente", ge=-2, le=7)
+    status_pag_5: int = Field(..., description="Status de pagamento no quinto mês mais recente", ge=-2, le=7)
+    status_pag_6: int = Field(..., description="Status de pagamento no sexto mês mais recente", ge=-2, le=7)
+    fatura_1: float = Field(..., description="Valor da fatura no mês mais recente")
+    fatura_2: float = Field(..., description="Valor da fatura no segundo mês mais recente")
+    fatura_3: float = Field(..., description="Valor da fatura no terceiro mês mais recente")
+    fatura_4: float = Field(..., description="Valor da fatura no quarto mês mais recente")
+    fatura_5: float = Field(..., description="Valor da fatura no quinto mês mais recente")
+    fatura_6: float = Field(..., description="Valor da fatura no sexto mês mais recente")
+    pag_fatura_1: float = Field(..., description="Valor pago no mês mais recente")
+    pag_fatura_2: float = Field(..., description="Valor pago no segundo mês mais recente")
+    pag_fatura_3: float = Field(..., description="Valor pago no terceiro mês mais recente")
+    pag_fatura_4: float = Field(..., description="Valor pago no quarto mês mais recente")
+    pag_fatura_5: float = Field(..., description="Valor pago no quinto mês mais recente")
+    pag_fatura_6: float = Field(..., description="Valor pago no sexto mês mais recente")

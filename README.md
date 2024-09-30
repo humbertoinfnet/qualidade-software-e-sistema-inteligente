@@ -92,14 +92,14 @@ python app.py
 Criando imagem docker:
 ```bash
 # No diretório raiz do projeto executar o comando
-sudo docker build -t analyses .
+sudo docker build -t application_score .
 ```
 
 Rodando a aplicação com docker: 
 
 ```bash
 # No diretório raiz do projeto executar o comando
-docker run -p 5000:5000 analyses
+docker run -p 5678:5678 -p 5000:5000 application_score
 ```
 ## Erro na requisição do request-data:
 

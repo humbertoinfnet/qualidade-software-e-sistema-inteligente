@@ -1,10 +1,10 @@
 from flask import request, Response, current_app, json
 from flask_openapi3 import Tag, APIBlueprint
 
-from src.use_cases.application_score import Runner
+from src.use_cases.application_score.predict import Runner
 from src.interface_adapters.schemas.application_score.application_score import (
     BodyApplicationScore,
-    ResponseApplicationScore,
+    ResponseSuccessApplicationScore,
 )
 from src.interface_adapters.schemas.response import (
     ResponseError,
@@ -27,7 +27,7 @@ blueprint = APIBlueprint(
 
 @blueprint.post(
     '/application-score',
-    responses={200: ResponseApplicationScore}
+    responses={200: ResponseSuccessApplicationScore}
 )
 def classify_application_score(body: BodyApplicationScore):
     """
