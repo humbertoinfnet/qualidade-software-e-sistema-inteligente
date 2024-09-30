@@ -64,11 +64,22 @@ Rodando a aplicação com venv:
 # No diretório raiz do projeto executar o comando
 python app.py
 ```
+Rodando teste da aplicação com venv: 
+
+```bash
+# No diretório raiz do projeto executar o comando
+pytest .
+```
 ## Utilizando Docker
-Criando imagem docker:
+Criando imagem docker da aplicação:
 ```bash
 # No diretório raiz do projeto executar o comando
 sudo docker build -t application_score .
+```
+Criando imagem docker do teste:
+```bash
+# No diretório raiz do projeto executar o comando
+sudo docker build -t test_application_score -f Dockerfile.test .
 ```
 
 Rodando a aplicação com docker: 
@@ -77,15 +88,11 @@ Rodando a aplicação com docker:
 # No diretório raiz do projeto executar o comando
 docker run -p 5678:5678 -p 5000:5000 application_score
 ```
-## Erro na requisição do request-data:
 
-Configurando env:
+Rodando o teste da aplicação com docker: 
 ```bash
-# No diretório raiz renomear o arquivo .env_example para .env
-# rodar o projeto request-data e verificar o IP atribuido através do docker
-docker network inspect bridge
-
-# alterar no arquivo env substituindo a URL de acordo com o IP atribuido ao projeto request-data
+# No diretório raiz do projeto executar o comando
+docker run test_application_score
 ```
 
 ## Estrutura do Projeto
@@ -109,3 +116,10 @@ docker network inspect bridge
 | requirements  |                      |               |                 | Lista de dependências do projeto                                       |
 | gitignore     |                      |               |                 | Arquivo para especificar arquivos e diretórios que devem ser ignorados pelo git |
 
+
+# Rodando Front-End
+
+```bash
+# No diretório front_end/ executar o comando
+executar o arquivo index.html
+```
