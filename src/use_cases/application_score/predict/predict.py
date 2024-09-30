@@ -4,12 +4,12 @@ import pandas as pd
 
 class Predict:
     
-    def __init__(self, data):
-        self.model = self.load_model()
+    def __init__(self, data, filename):
+        self.model = self.load_model(filename)
         self.data = data
     
-    def load_model(self):
-        with open('random_forest_model_v2.pkl', 'rb') as file:
+    def load_model(self, filename):
+        with open(filename, 'rb') as file:
             loaded_model = pickle.load(file)
         return loaded_model
     
@@ -21,6 +21,6 @@ class Predict:
         return self.data
         
     def classify(self, prob):
-        bins = [0, 0.1, 0.2, 0.3, 0.8, 0.85, 0.93, 0.95]  # Intervalos ajustados
+        bins = [0.05, 0.15, 0.3, 0.4, 0.7, 0.8, 0.9, 0.95]
         labels = ['AA','A', 'B', 'C', 'D', 'E', 'F']
         return pd.cut(prob, bins=bins, labels=labels)

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Envio</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Classificação de Risco de Crédito</h1>
+        <form id="infoForm">
+    <!-- Linha 1 -->
+
+    <h3>Informações Cadastrais</h3>
+    <div class="row">
+        <div class="column">
+            <label for="identifier">Id classificação:</label>
+            <input type="text" id="identifier" readonly>
+        </div>
+        <div class="column">
+            <label for="limit_bal">Limite Credito:</label>
+            <input value="0" type="number" id="limit_bal" min=0 required>
+        </div>
+        <div class="column">
+            <label for="sex">Sexo:</label>
+            <select id="sex" required>
+                <option value="1">Masculino</option>
+                <option value="2">Feminino</option>
+            </select>
+        </div>
+        <div class="column">
+            <label for="education">Escolaridade:</label>
+            <select id="education" required>
+                <option value="1">Pós-gradução</option>
+                <option value="2">Universidade</option>
+                <option value="3">Ensino Médio</option>
+                <option value="4">Outros</option>
+                <option value="5">Desconhecido 1</option>
+                <option value="6">Sem informação</option>
+            </select>
+        </div>
+        <div class="column">
+            <label for="marriage">Estado Civil:</label>
+            <select id="marriage" required>
+                <option value="1">Casado</option>
+                <option value="2">Solteiro</option>
+                <option value="3">Divorciado</option>
+                <option value="0">Outros</option>
+            </select>
+        </div>
+        <div class="column">
+            <label for="age">Idade:</label>
+            <input value="18"  type="number" id="age" min="18" required>
+        </div>
+    </div>
+
+    <h3>Informações de Pagamento Mês a Mês</h3>
+    <div class="row">
+        <div class="column">
+            <label for="pay_1">Status Pag 1:</label>
+            <select id="pay_1" required>
+                <option value="-2">Sem consumo</option>
+                <option value="-1">Pago integralmente</option>
+                <option value="0">Uso rotativo</option>
+                <option value="1">Atraso de 1 mes</option>
+                <option value="2">Atraso de 2 meses</option>
+                <option value="3">Atraso de 3 meses</option>
+                <option value="4">Atraso de 4 meses</option>
+                <option value="5">Atraso de 5 meses</option>
+                <option value="6">Atraso de 6 meses</option>
+                <option value="7">Atraso de 7 meses</option>
+            </select>
+        </div>
+        <div class="column">
+            <label for="pay_2">Status Pag 2:</label>
+            <select id="pay_2" required>
+                <option value="-2">Sem consumo</option>
+                <option value="-1">Pago integralmente</option>
+                <option value="0">Uso rotativo</option>
+                <option value="1">Atraso de 1 mes</option>
+                <option value="2">Atraso de 2 meses</option>
+                <option value="3">Atraso de 3 meses</option>
+                <option value="4">Atraso de 4 meses</option>
+                <option value="5">Atraso de 5 meses</option>
+                <option value="6">Atraso de 6 meses</option>
+                <option value="7">Atraso de 7 meses</option>
+            </select>
+        </div>
+        <div class="column">
+            <label for="pay_3">Status Pag 3:</label>
+            <select id="pay_3" required>
+                <option value="-2">Sem consumo</option>
+                <option value="-1">Pago integralmente</option>
+                <option value="0">Uso rotativo</option>
+                <option value="1">Atraso de 1 mes</option>
+                <option value="2">Atraso de 2 meses</option>
+                <option value="3">Atraso de 3 meses</option>
+                <option value="4">Atraso de 4 meses</option>
+                <option value="5">Atraso de 5 meses</option>
+                <option value="6">Atraso de 6 meses</option>
+                <option value="7">Atraso de 7 meses</option>
+            </select>
+        </div>
+        <div class="column">
+            <label for="pay_4">Status Pag 4:</label>
+            <select id="pay_4" required>
+                <option value="-2">Sem consumo</option>
+                <option value="-1">Pago integralmente</option>
+                <option value="0">Uso rotativo</option>
+                <option value="1">Atraso de 1 mes</option>
+                <option value="2">Atraso de 2 meses</option>
+                <option value="3">Atraso de 3 meses</option>
+                <option value="4">Atraso de 4 meses</option>
+                <option value="5">Atraso de 5 meses</option>
+                <option value="6">Atraso de 6 meses</option>
+                <option value="7">Atraso de 7 meses</option>
+            </select>
+        </div>
+        <div class="column">
+            <label for="pay_5">Status Pag 5:</label>
+            <select id="pay_5" required>
+                <option value="-2">Sem consumo</option>
+                <option value="-1">Pago integralmente</option>
+                <option value="0">Uso rotativo</option>
+                <option value="1">Atraso de 1 mes</option>
+                <option value="2">Atraso de 2 meses</option>
+                <option value="3">Atraso de 3 meses</option>
+                <option value="4">Atraso de 4 meses</option>
+                <option value="5">Atraso de 5 meses</option>
+                <option value="6">Atraso de 6 meses</option>
+                <option value="7">Atraso de 7 meses</option>
+            </select>
+        </div>
+        <div class="column">
+            <label for="pay_6">Status Pag 6:</label>
+            <select id="pay_6" required>
+                <option value="-2">Sem consumo</option>
+                <option value="-1">Pago integralmente</option>
+                <option value="0">Uso rotativo</option>
+                <option value="1">Atraso de 1 mes</option>
+                <option value="2">Atraso de 2 meses</option>
+                <option value="3">Atraso de 3 meses</option>
+                <option value="4">Atraso de 4 meses</option>
+                <option value="5">Atraso de 5 meses</option>
+                <option value="6">Atraso de 6 meses</option>
+                <option value="7">Atraso de 7 meses</option>
+            </select>
+        </div>
+    </div>
+
+    <h3>Informações da Fatura Mês a Mês</h3>
+    <div class="row">
+        <div class="column">
+            <label for="bill_amt1">Fatura 1:</label>
+            <input value=1  type="number" id="bill_amt1" required>
+        </div>
+        <div class="column">
+            <label for="bill_amt2">Fatura 2:</label>
+            <input value=1  type="number" id="bill_amt2" required>
+        </div>
+        <div class="column">
+            <label for="bill_amt3">Fatura 3:</label>
+            <input value=1  type="number" id="bill_amt3" required>
+        </div>
+        <div class="column">
+            <label for="bill_amt4">Fatura 4:</label>
+            <input value=1  type="number" id="bill_amt4" required>
+        </div>
+        <div class="column">
+            <label for="bill_amt5">Fatura 5:</label>
+            <input value=1  type="number" id="bill_amt5" required>
+        </div>
+        <div class="column">
+            <label for="bill_amt6">Fatura 6:</label>
+            <input value=1  type="number" id="bill_amt6" required>
+        </div>
+    </div>
+
+    <h3>Informações de Pagamento de Fatura Mês a Mês</h3>
+    <div class="row">
+        <div class="column">
+            <label for="pay_amt1">Pag Fatura 1:</label>
+            <input value=1 type="number" id="pay_amt1" required>
+        </div>
+        <div class="column">
+            <label for="pay_amt2">Pag Fatura 2:</label>
+            <input value=1  type="number" id="pay_amt2" required>
+        </div>
+        <div class="column">
+            <label for="pay_amt3">Pag Fatura 3:</label>
+            <input value=1  type="number" id="pay_amt3" required>
+        </div>
+        <div class="column">
+            <label for="pay_amt4">Pag Fatura 4:</label>
+            <input value=1  type="number" id="pay_amt4" required>
+        </div>
+        <div class="column">
+            <label for="pay_amt5">Pag Fatura 5:</label>
+            <input value=1  type="number" id="pay_amt5" required>
+        </div>
+        <div class="column">
+            <label for="pay_amt6">Pag Fatura 6:</label>
+            <input value=1  type="number" id="pay_amt6" required>
+        </div>
+    </div>
+
+    <button type="submit">Enviar</button>
+    <script src="script.js"></script>
+    <div id="result" class="result"></div>
+</form>
+

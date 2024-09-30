@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Cor de fundo escura */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 100%; /* O contêiner ocupa a largura total da página */
+    width: 90%; /* O contêiner ocupa 90% da largura da página com margens */
+    margin: 50px auto;
+    padding: 20px;
+    background: #1E1E1E; /* Fundo do contêiner mais claro */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+    color: #FFFFFF; /* Cor do título */
+}
+
+h2, h3 {
+    color: #FFFFFF; /* Cor para os textos <h2> */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha se necessário */
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column; /* Disposição em coluna para alinhar label e input */
+    flex: 1 1 14%; /* Ajuste flexível para cada coluna ocupar parte proporcional */
+    margin: 5px;
+    min-width: 120px; /* Define uma largura mínima */
+}
+
+label {
+    margin-bottom: 5px; /* Espaço entre o label e o input */
+    color: #E0E0E0; /* Cor do texto do label */
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #444; /* Borda escura */
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%; /* Garante que o input ocupe 100% da largura disponível */
+    background-color: #333; /* Fundo dos inputs */
+    color: #E0E0E0; /* Cor do texto nos inputs */
+}
+
+input:focus, select:focus {
+    border-color: #781300; /* Cor da borda ao focar */
+    outline: none; /* Remove a borda padrão */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #781300; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3e0d00; /* Cor de fundo ao passar o mouse */
+}
+
+.result {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #444; /* Borda escura */
+    border-radius: 4px;
+    background-color: #222; /* Fundo do resultado */
+    color: #E0E0E0; /* Cor do texto do resultado */
+}
+
+
+/* Estilo geral da tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para cabeçalho da tabela */
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #444; /* Cor da borda */
+}
+
+/* Estilo para o cabeçalho */
+th {
+    background-color: #333; /* Cor de fundo do cabeçalho */
+    color: #E0E0E0; /* Cor do texto do cabeçalho */
+    font-size: 1.1em; /* Tamanho da fonte do cabeçalho */
+}
+
+/* Estilo para as células */
+td {
+    background-color: #444; /* Cor de fundo das células */
+    transition: background-color 0.3s; /* Efeito de transição para hover */
+}
+
+/* Estilo para o efeito de hover nas células */
+td:hover {
+    background-color: #444; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo para linhas alternadas */
+tr:nth-child(even) {
+    background-color: #444; /* Cor de fundo para linhas pares */
+}
+
+/* Estilo para a tabela em dispositivos menores */
+@media (max-width: 600px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
