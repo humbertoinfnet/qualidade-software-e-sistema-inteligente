@@ -15,52 +15,28 @@
 ## Descrição do projeto 
 
 <p align="justify">
-  O problema que estamos abordando envolve o gerenciamento de políticas de crédito.
+  Sistema de classificação de crédito, definindo o risco de inadimplência de acordo com as informações do ciente.
 </p>
 
 ## Visão Geral da Solução
 
-Na solução, foram criadas três elementos principais para Política:
+A solução foi feita abordando 3 partes principais:
 
-- Políticas
-- Camadas
-- Regras
+- Modelagem: feita com estudos em um notebook jupyter
+- Back-end: foi criado um endpoint recebendo com entrada as features do modelo treinado e executando a predição de probabilidade de inadimplência
+- Front-end: tela com os campos para informar os valores das features do modelo e a resposta da predição com um gráfico de explicação da classificação
 
-Além disso, foram criados dois elementos auxiliares:
-
-- Associação de Política com Camada
-- Associação de Camada com Regra
-
-E um endpoint para análise de Crédito, requisitando os dados e aplicando a política configurada nos passos anteriores
-- Analise
-
-## Fluxo Geral do Projeto
-Nesse repositório temos o projeto da componente principal.
-
-As demais componentes estão contidas nos seguintes repositorios:
-- Componente Secundária (front-end): https://github.com/humbertoinfnet/full-stack-basico-front-end
-- Componente Secundária (request-data): https://github.com/humbertoinfnet/request-data
-
-Fluxograma
-![image](https://github.com/user-attachments/assets/dd3f41a9-e960-4785-88b8-eed1c038b889)
 
 ## Pré-requisitos
 
 :warning: [Python 3.11.3](https://www.python.org/downloads/release/python-3113/)
 
-## Funcionalidades
-
-:heavy_check_mark: Políticas: Criação | Edição | Delete | Busca
-
-:heavy_check_mark: Camadas: Criação | Edição | Delete | Busca
-
-:heavy_check_mark: Regras: Criação | Edição | Delete | Busca
 
 No terminal, clone o projeto: 
 
 ```bash
 # Clonar o projeto
-git clone https://github.com/humbertoinfnet/desenvolvimento-fullstack-basico.git
+git clone https://github.com/humbertoinfnet/qualidade-software-e-sistema-inteligente.git
 ```
 
 ## Utilizando VENV
@@ -128,8 +104,7 @@ docker network inspect bridge
 |               | interface_adapters/  |               |                 | Códigos que fazem a interface entre casos de uso e aplicações externas |
 |               | log/                 |               |                 | Configuração dos logs                                                  |
 |               | use_case/            |               |                 | Casos de uso do projeto                                                |
-|               |                      | analyses/     |                 | Lógica dos casos de uso relacionados a analise de credito              |
-|               |                      | motor/        |                 | Lógica dos casos de uso relacionados a configuração de política        |
+|               |                      |application_score/     |        | Lógica dos casos de uso relacionados classificação de risco de credito              |
 | app           |                      |               |                 | Arquivos específicos da aplicação principal                            |
 | requirements  |                      |               |                 | Lista de dependências do projeto                                       |
 | gitignore     |                      |               |                 | Arquivo para especificar arquivos e diretórios que devem ser ignorados pelo git |
